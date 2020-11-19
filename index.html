@@ -47,7 +47,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." />
 <link id="faviconLink" rel="shortcut icon" href="favicon.ico">
-<title>Drift â€” Collect. Organize. Grow.</title>
+<title>Codex Vitae â€” Sridatta Thatipamala's Book of Life</title>
 <!--~~ This is a Tiddlywiki file. The points of interest in the file are marked with this pattern ~~-->
 
 <!--~~ Raw markup ~~-->
@@ -139,7 +139,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." />
   100% { width: 0; }
 }
 </style><div class="line-wrapper">
-<div class="tc-splash-text">Drift</div>
+<div class="tc-splash-text">Codex Vitae</div>
 <div class="line"></div>
 <div class="linetwo"></div>
 <div class="linethree"></div>
@@ -250,6 +250,8 @@ Error message and password prompt
 <li>$:/ak/plugins/DailyNotes/todoStatus</li>
 
 <li>$:/ak/plugins/TWCrossLinks</li>
+
+<li>$:/config/AnimationDuration</li>
 
 <li>$:/config/AutoSave</li>
 
@@ -370,6 +372,8 @@ Error message and password prompt
 <li>$:/state/tab/sidebar--595412856</li>
 
 <li>$:/status/RequireReloadDueToPluginChange</li>
+
+<li>$:/status/UserName</li>
 
 <li>$:/StoryList</li>
 
@@ -1184,6 +1188,9 @@ Search in fields... &amp;nbsp; &lt;span class=&quot;tc-advanced-search-check&quo
         }
     }
 }</pre>
+</div>
+<div created="20201119115908463" modified="20201119115931545" title="$:/config/AnimationDuration">
+<pre>0</pre>
 </div>
 <div created="20201119082855643" modified="20201119082855643" title="$:/config/AutoSave">
 <pre>no</pre>
@@ -10677,7 +10684,7 @@ Search in fields... &amp;nbsp; &lt;span class=&quot;tc-advanced-search-check&quo
 <div created="20201119075950579" modified="20201119075951673" title="$:/GitHub/Username">
 <pre>sridatta</pre>
 </div>
-<div message-$:/plugins/kixam/datepicker="(requires reload) Blocked plugin (due to incoming 0.5.2 being older than existing 0.5.2)" message-$:/plugins/kixam/moment="(requires reload) Blocked plugin (due to incoming 2.24.0 being older than existing 2.24.0)" plugin-type="import" selection-$:/plugins/kixam/datepicker="unchecked" selection-$:/plugins/kixam/moment="unchecked" status="pending" title="$:/Import" type="application/json">
+<div datepicker="(requires reload) Blocked plugin (due to incoming 0.5.2 being older than existing 0.5.2)" kixam="" message-$:="" moment="(requires reload) Blocked plugin (due to incoming 2.24.0 being older than existing 2.24.0)" plugin-type="import" plugins="" selection-$:="" status="pending" title="$:/Import" type="application/json">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/plugins/kixam/datepicker&quot;: {},
@@ -11750,7 +11757,7 @@ focus: show</pre>
         },
         &quot;$:/plugins/nico/pm/macros/project&quot;: {
             &quot;created&quot;: &quot;20200422200514984&quot;,
-            &quot;text&quot;: &quot;\\define archive-project()\n  &lt;$fieldmangler&gt;\n    &lt;$button class=\&quot;pm-btn btn-danger nc-archive-project\&quot;&gt;\n      &lt;$action-sendmessage $message=\&quot;tm-add-tag\&quot; $param=\&quot;Archived\&quot;/&gt;\n        {{$:/core/images/delete-button}} Archive project\n    &lt;/$button&gt;\n  &lt;/$fieldmangler&gt;\n\\end\n\n\\define restore-project()\n  &lt;$fieldmangler&gt;\n    &lt;$button class=\&quot;tc-btn-invisible\&quot;&gt;\n      &lt;$action-sendmessage $message=\&quot;tm-remove-tag\&quot; $param=\&quot;Archived\&quot;/&gt;\n        Restore project\n    &lt;/$button&gt;\n  &lt;/$fieldmangler&gt;\n\\end\n\n\\define todo-list(tag emptyMessage:\&quot;''í ½í¹Œ All done!''\&quot;)\n  &lt;&lt;list-tagged-draggable tag:\&quot;$tag$\&quot; subFilter:\&quot;!has[draft.of]!tag[done]\&quot; itemTemplate:\&quot;$:/plugins/nico/pm/ui/TodoTemplate\&quot; emptyMessage:\&quot;$emptyMessage$\&quot;&gt;&gt;\n\\end\n\n\\define todo-list-completed(tag)\n  &lt;$list filter=\&quot;[!has[draft.of]tag[$tag$]tag[done]sort[created]]\&quot; template=\&quot;$:/plugins/nico/pm/ui/CompletedTodoTemplate\&quot;/&gt;\n\\end\n\n\\define new-todo-button(tag label)\n  &lt;$button class=\&quot;pm-btn\&quot;&gt;\n    &lt;$action-sendmessage $message=\&quot;tm-new-tiddler\&quot; tags=\&quot;[[$tag$]] todo\&quot;/&gt;\n    {{$:/core/images/list-bullet}}\n    $label$\n  &lt;/$button&gt;\n\\end\n\n\\define todo-count(tag)\n  &lt;span class=\&quot;pm-todo-count\&quot;&gt;\n    &lt;$list filter=\&quot;[tag[$tag$]!has[draft.of]tag[done]count[]]\&quot;&gt;{{!!title}}&lt;/$list&gt; \n    / \n    &lt;$list filter=\&quot;[tag[$tag$]!has[draft.of]count[]]\&quot;&gt;{{!!title}}&lt;/$list&gt;\n  &lt;/span&gt;\n\\end\n\n\\define project-with-tag(tag newTodoLabel:\&quot;Add a todo\&quot;)\n  &lt;$list filter=\&quot;[is[current]tag[Archived]]\&quot;&gt;\n    &lt;div class=\&quot;pm-banner\&quot;&gt;\n      This project is archived. &lt;$macrocall $name=\&quot;restore-project\&quot;/&gt;\n    &lt;/div&gt;\n  &lt;/$list&gt;\n\n  &lt;h2&gt;Todos \n    &lt;$macrocall $name=\&quot;todo-count\&quot; tag=\&quot;$tag$\&quot;/&gt;\n  &lt;/h2&gt;\n  \n  &lt;$macrocall $name=\&quot;todo-list\&quot; tag=\&quot;$tag$\&quot;/&gt;\n  &lt;$macrocall $name=\&quot;new-todo-button\&quot; tag=\&quot;$tag$\&quot; label=\&quot;$newTodoLabel$\&quot;/&gt;\n  &lt;$list filter=\&quot;[is[current]!tag[Archived]]\&quot;&gt;\n    or &lt;$macrocall $name=\&quot;archive-project\&quot;/&gt;\n  &lt;/$list&gt;\n  \n  &lt;h2&gt;Completed&lt;/h2&gt;\n\n  &lt;$macrocall $name=\&quot;todo-list-completed\&quot; tag=\&quot;$tag$\&quot;/&gt;\n\\end\n\n\\define project()\n  &lt;$macrocall $name=\&quot;project-with-tag\&quot; tag={{!!title}}/&gt;\n\\end&quot;,
+            &quot;text&quot;: &quot;\\define archive-project()\n  &lt;$fieldmangler&gt;\n    &lt;$button class=\&quot;pm-btn btn-danger nc-archive-project\&quot;&gt;\n      &lt;$action-sendmessage $message=\&quot;tm-add-tag\&quot; $param=\&quot;Archived\&quot;/&gt;\n        {{$:/core/images/delete-button}} Archive project\n    &lt;/$button&gt;\n  &lt;/$fieldmangler&gt;\n\\end\n\n\\define restore-project()\n  &lt;$fieldmangler&gt;\n    &lt;$button class=\&quot;tc-btn-invisible\&quot;&gt;\n      &lt;$action-sendmessage $message=\&quot;tm-remove-tag\&quot; $param=\&quot;Archived\&quot;/&gt;\n        Restore project\n    &lt;/$button&gt;\n  &lt;/$fieldmangler&gt;\n\\end\n\n\\define todo-list(tag emptyMessage:\&quot;''ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ All done!''\&quot;)\n  &lt;&lt;list-tagged-draggable tag:\&quot;$tag$\&quot; subFilter:\&quot;!has[draft.of]!tag[done]\&quot; itemTemplate:\&quot;$:/plugins/nico/pm/ui/TodoTemplate\&quot; emptyMessage:\&quot;$emptyMessage$\&quot;&gt;&gt;\n\\end\n\n\\define todo-list-completed(tag)\n  &lt;$list filter=\&quot;[!has[draft.of]tag[$tag$]tag[done]sort[created]]\&quot; template=\&quot;$:/plugins/nico/pm/ui/CompletedTodoTemplate\&quot;/&gt;\n\\end\n\n\\define new-todo-button(tag label)\n  &lt;$button class=\&quot;pm-btn\&quot;&gt;\n    &lt;$action-sendmessage $message=\&quot;tm-new-tiddler\&quot; tags=\&quot;[[$tag$]] todo\&quot;/&gt;\n    {{$:/core/images/list-bullet}}\n    $label$\n  &lt;/$button&gt;\n\\end\n\n\\define todo-count(tag)\n  &lt;span class=\&quot;pm-todo-count\&quot;&gt;\n    &lt;$list filter=\&quot;[tag[$tag$]!has[draft.of]tag[done]count[]]\&quot;&gt;{{!!title}}&lt;/$list&gt; \n    / \n    &lt;$list filter=\&quot;[tag[$tag$]!has[draft.of]count[]]\&quot;&gt;{{!!title}}&lt;/$list&gt;\n  &lt;/span&gt;\n\\end\n\n\\define project-with-tag(tag newTodoLabel:\&quot;Add a todo\&quot;)\n  &lt;$list filter=\&quot;[is[current]tag[Archived]]\&quot;&gt;\n    &lt;div class=\&quot;pm-banner\&quot;&gt;\n      This project is archived. &lt;$macrocall $name=\&quot;restore-project\&quot;/&gt;\n    &lt;/div&gt;\n  &lt;/$list&gt;\n\n  &lt;h2&gt;Todos \n    &lt;$macrocall $name=\&quot;todo-count\&quot; tag=\&quot;$tag$\&quot;/&gt;\n  &lt;/h2&gt;\n  \n  &lt;$macrocall $name=\&quot;todo-list\&quot; tag=\&quot;$tag$\&quot;/&gt;\n  &lt;$macrocall $name=\&quot;new-todo-button\&quot; tag=\&quot;$tag$\&quot; label=\&quot;$newTodoLabel$\&quot;/&gt;\n  &lt;$list filter=\&quot;[is[current]!tag[Archived]]\&quot;&gt;\n    or &lt;$macrocall $name=\&quot;archive-project\&quot;/&gt;\n  &lt;/$list&gt;\n  \n  &lt;h2&gt;Completed&lt;/h2&gt;\n\n  &lt;$macrocall $name=\&quot;todo-list-completed\&quot; tag=\&quot;$tag$\&quot;/&gt;\n\\end\n\n\\define project()\n  &lt;$macrocall $name=\&quot;project-with-tag\&quot; tag={{!!title}}/&gt;\n\\end&quot;,
             &quot;title&quot;: &quot;$:/plugins/nico/pm/macros/project&quot;,
             &quot;tags&quot;: &quot;$:/tags/Macro&quot;,
             &quot;modified&quot;: &quot;20200427163705930&quot;
@@ -11771,7 +11778,7 @@ focus: show</pre>
         },
         &quot;$:/plugins/nico/pm/ui/Inbox&quot;: {
             &quot;created&quot;: &quot;20200425193337699&quot;,
-            &quot;text&quot;: &quot;\\define inbox-count()\n  &lt;span class=\&quot;pm-count\&quot;&gt;\n    &lt;$list filter=\&quot;[tag[Inbox]!has[draft.of]!tag[done]count[]]\&quot;&gt;{{!!title}}&lt;/$list&gt; \n  &lt;/span&gt;\n\\end\n\n&lt;h2&gt;Inbox &lt;$macrocall $name=\&quot;inbox-count\&quot;/&gt;&lt;/h2&gt;\n\n&lt;$keyboard key=\&quot;enter\&quot;&gt;\n  &lt;$action-setfield $tiddler={{$:/state/Inbox!!todo_name}} tags=\&quot;Inbox todo\&quot;/&gt;\n  &lt;$action-setfield $tiddler=\&quot;$:/state/Inbox\&quot; todo_name=\&quot;\&quot;/&gt;\n  &lt;$edit-text class=\&quot;pm-input\&quot; tiddler=\&quot;$:/state/Inbox\&quot; field=\&quot;todo_name\&quot; placeholder=\&quot;Add to inbox...\&quot;/&gt;\n&lt;/$keyboard&gt;\n\n&lt;$macrocall class=\&quot;nc-inbox-input\&quot; $name=\&quot;todo-list\&quot; tag=\&quot;Inbox\&quot; emptyMessage=\&quot;í ¼í¼ž You're all done! Have a good day.\&quot;/&gt;&quot;,
+            &quot;text&quot;: &quot;\\define inbox-count()\n  &lt;span class=\&quot;pm-count\&quot;&gt;\n    &lt;$list filter=\&quot;[tag[Inbox]!has[draft.of]!tag[done]count[]]\&quot;&gt;{{!!title}}&lt;/$list&gt; \n  &lt;/span&gt;\n\\end\n\n&lt;h2&gt;Inbox &lt;$macrocall $name=\&quot;inbox-count\&quot;/&gt;&lt;/h2&gt;\n\n&lt;$keyboard key=\&quot;enter\&quot;&gt;\n  &lt;$action-setfield $tiddler={{$:/state/Inbox!!todo_name}} tags=\&quot;Inbox todo\&quot;/&gt;\n  &lt;$action-setfield $tiddler=\&quot;$:/state/Inbox\&quot; todo_name=\&quot;\&quot;/&gt;\n  &lt;$edit-text class=\&quot;pm-input\&quot; tiddler=\&quot;$:/state/Inbox\&quot; field=\&quot;todo_name\&quot; placeholder=\&quot;Add to inbox...\&quot;/&gt;\n&lt;/$keyboard&gt;\n\n&lt;$macrocall class=\&quot;nc-inbox-input\&quot; $name=\&quot;todo-list\&quot; tag=\&quot;Inbox\&quot; emptyMessage=\&quot;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ You're all done! Have a good day.\&quot;/&gt;&quot;,
             &quot;tags&quot;: &quot;&quot;,
             &quot;title&quot;: &quot;$:/plugins/nico/pm/ui/Inbox&quot;,
             &quot;modified&quot;: &quot;20200427142337684&quot;,
@@ -11811,7 +11818,7 @@ focus: show</pre>
         },
         &quot;$:/plugins/nico/pm/ui/Schedule&quot;: {
             &quot;created&quot;: &quot;20200424193230404&quot;,
-            &quot;text&quot;: &quot;\\define schedule-today()\n  &lt;$list filter=\&quot;[!has[draft.of]!tag[done]tag[todo]days:due[0]]\&quot; template=\&quot;$:/plugins/nico/pm/ui/TodoTemplate\&quot; emptyMessage=\&quot;í ¼í¼ž All clear!\&quot;/&gt;\n\\end\n\n\\define schedule-range(start end)\n  &lt;$list filter=\&quot;[!has[draft.of]!tag[done]tag[todo]!days:due[$start$]days:due[$end$]sort[due]]\&quot; template=\&quot;$:/plugins/nico/pm/ui/TodoTemplate\&quot; emptyMessage=\&quot;í ¼í¼ž All clear!\&quot;/&gt;\n\\end\n\n\\define schedule-overdue()\n  &lt;$list filter=\&quot;[!has[draft.of]!tag[done]tag[todo]!days:due[-1]sort[due]]\&quot; template=\&quot;$:/plugins/nico/pm/ui/TodoTemplate\&quot;/&gt;\n\\end\n\n&lt;$list filter=\&quot;[!has[draft.of]!tag[done]tag[todo]!days:due[-1]limit[1]]\&quot;&gt;\n\n  !! Overdue\n\n  &lt;&lt;schedule-overdue&gt;&gt;\n\n&lt;/$list&gt;\n\n!! Today\n\n&lt;&lt;schedule-today&gt;&gt;\n\n!! Next 7 days\n\n&lt;&lt;schedule-range 1 7&gt;&gt;\n\n!! Next 30 days\n\n&lt;&lt;schedule-range 7 30&gt;&gt;&quot;,
+            &quot;text&quot;: &quot;\\define schedule-today()\n  &lt;$list filter=\&quot;[!has[draft.of]!tag[done]tag[todo]days:due[0]]\&quot; template=\&quot;$:/plugins/nico/pm/ui/TodoTemplate\&quot; emptyMessage=\&quot;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ All clear!\&quot;/&gt;\n\\end\n\n\\define schedule-range(start end)\n  &lt;$list filter=\&quot;[!has[draft.of]!tag[done]tag[todo]!days:due[$start$]days:due[$end$]sort[due]]\&quot; template=\&quot;$:/plugins/nico/pm/ui/TodoTemplate\&quot; emptyMessage=\&quot;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ All clear!\&quot;/&gt;\n\\end\n\n\\define schedule-overdue()\n  &lt;$list filter=\&quot;[!has[draft.of]!tag[done]tag[todo]!days:due[-1]sort[due]]\&quot; template=\&quot;$:/plugins/nico/pm/ui/TodoTemplate\&quot;/&gt;\n\\end\n\n&lt;$list filter=\&quot;[!has[draft.of]!tag[done]tag[todo]!days:due[-1]limit[1]]\&quot;&gt;\n\n  !! Overdue\n\n  &lt;&lt;schedule-overdue&gt;&gt;\n\n&lt;/$list&gt;\n\n!! Today\n\n&lt;&lt;schedule-today&gt;&gt;\n\n!! Next 7 days\n\n&lt;&lt;schedule-range 1 7&gt;&gt;\n\n!! Next 30 days\n\n&lt;&lt;schedule-range 7 30&gt;&gt;&quot;,
             &quot;title&quot;: &quot;$:/plugins/nico/pm/ui/Schedule&quot;,
             &quot;tags&quot;: &quot;$:/plugins/nico/pm/tags/dashboard&quot;,
             &quot;modified&quot;: &quot;20200428120734010&quot;,
@@ -12074,11 +12081,11 @@ focus: show</pre>
     }
 }</pre>
 </div>
-<div bag="default" created="20200425222551847" modified="20200501083154089" revision="0" title="$:/SiteSubtitle" type="text/vnd.tiddlywiki">
-<pre>Collect. Organize. Grow.</pre>
+<div bag="default" created="20200425222551847" creator="sridatta" modified="20201119120137018" modifier="sridatta" revision="0" title="$:/SiteSubtitle" type="text/vnd.tiddlywiki">
+<pre>Sridatta Thatipamala's Book of Life</pre>
 </div>
-<div bag="default" created="20200425222530021" modified="20200501124300915" revision="0" title="$:/SiteTitle" type="text/vnd.tiddlywiki">
-<pre>Drift</pre>
+<div bag="default" created="20200425222530021" creator="sridatta" modified="20201119115957511" modifier="sridatta" revision="0" title="$:/SiteTitle" type="text/vnd.tiddlywiki">
+<pre>Codex Vitae</pre>
 </div>
 <div bag="default" created="20200429115255034" modified="20200501210623686" revision="0" tags="$:/tags/RawMarkupWikified/TopBody" title="$:/SplashScreen" type="text/vnd.tiddlywiki">
 <pre>\import [[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]
@@ -12182,19 +12189,22 @@ html body.tc-body {
 <div created="20201119115040425" modified="20201119115045824" title="$:/state/Inbox" todo_name="">
 <pre></pre>
 </div>
-<div created="20201119075939665" modified="20201119115154054" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/KeyboardShortcuts</pre>
+<div created="20201119075939665" modified="20201119115903768" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Info</pre>
 </div>
 <div created="20201119075942288" modified="20201119113800843" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20201119075920207" modified="20201119114827133" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Open</pre>
+<div created="20201119075920207" modified="20201119115847242" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
-<pre>yes</pre>
+<pre>no</pre>
 </div>
-<div created="20201119114747761" list="AugCog [[A Lever for the Mind]] [[Commonplace - The Commoncog Blog]] [[PM Dash]] $:/core/ui/MoreSideBar/All 20201119" modified="20201119115436850" title="$:/StoryList">
+<div created="20201119115933053" creator="s" modified="20201119115934671" modifier="sridatt" title="$:/status/UserName">
+<pre>sridatta</pre>
+</div>
+<div created="20201119115848480" creator="sridatta" list="[[The Rhetoric of the Hyperlink]] [[Commonplace - The Commoncog Blog]] [[Submit flag change]] [[A Lever for the Mind]] 20201119" modified="20201119115950066" modifier="sridatta" title="$:/StoryList">
 <pre></pre>
 </div>
 <div bag="default" created="20200502112123171" list="$:/core/ui/SideBarSegments/site-title $:/core/ui/SideBarSegments/site-subtitle $:/core/ui/SideBarSegments/page-controls $:/core/ui/SideBarSegments/search $:/core/ui/SideBarSegments/tabs" modified="20200502112123186" revision="0" title="$:/tags/SideBarSegment" type="text/vnd.tiddlywiki">
@@ -13441,7 +13451,7 @@ div::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.12); }
 ''&lt;&lt;dn-ts 20201119114028330&gt;&gt;''~Quick entry! &lt;br /&gt;
 ''&lt;&lt;dn-ts 20201119114420400&gt;&gt;''~foobar &lt;br /&gt;</pre>
 </div>
-<div created="20201119115319422" modified="20201119115326773" tags="" title="A Lever for the Mind">
+<div created="20201119115319422" modified="20201119115927256" tags="" title="A Lever for the Mind">
 <pre>https://codon.com/a-lever-for-the-mind</pre>
 </div>
 <div created="20201119115231980" modified="20201119115244436" tags="AugCog" title="Commonplace - The Commoncog Blog">
